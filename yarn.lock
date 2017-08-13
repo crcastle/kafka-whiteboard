@@ -2952,7 +2952,7 @@ socket.io-client@~2.0.2:
 
 socket.io-kafka@crcastle/socket.io-kafka:
   version "0.0.1"
-  resolved "https://codeload.github.com/crcastle/socket.io-kafka/tar.gz/dc8e1bd4b575eb642b27292b7120dbbd94c57156"
+  resolved "https://codeload.github.com/crcastle/socket.io-kafka/tar.gz/0f31a61af3474ead5b54f06230ae945c7705c4ed"
   dependencies:
     debug "^2.1.3"
     no-kafka "^3.2.0"
