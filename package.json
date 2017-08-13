@@ -1,7 +1,7 @@
 {
   "name": "kafka-whiteboard",
   "version": "1.0.0",
-  "description": "Shared virtual whiteboard backed by Apache Kafka",
+  "description": "Shared, scalable virtual whiteboard backed by Apache Kafka on Heroku",
   "keywords": [
     "node",
     "heroku",
