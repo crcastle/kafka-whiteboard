@@ -1,0 +1,36 @@
+{
+  "name": "kafka-whiteboard",
+  "description": "Shared, scalable virtual whiteboard backed by Apache Kafka on Heroku.",
+  "keywords": [
+    "node",
+    "express",
+    "socket.io",
+    "websockets",
+    "apache kafka",
+    "whiteboard",
+    "example"
+  ],
+  "scripts": {
+    "postdeploy": "heroku kafka:topics:create messages; heroku kafka:wait"
+  },
+  "env": {
+    "KAFKA_TOPIC": {
+      "description": "The Kafka topic name to use.",
+      "value": "messages",
+      "required": false
+    },
+    "HEROKU_API_KEY": {
+      "description": "Your Heroku account's API Key (get from https://dashboard.heroku.com/account)",
+      "required": true
+    }
+  },
+  "addons": ["heroku-kafka:beta3-mt-0"],
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-cli"
+    },
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
