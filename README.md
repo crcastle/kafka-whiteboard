@@ -2,8 +2,6 @@
 
 Shared, scalable virtual whiteboard backed by Apache Kafka on Heroku.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-
 ## Deploying to Heroku via CLI
 
 Create a heroku app with Kafka attached:
