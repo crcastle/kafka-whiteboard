@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 const http = require("http");
 const express = require("express");
 const babelify = require("express-babelify-middleware");
@@ -34,21 +32,14 @@ var kafkaOptions = {
 };
 io.adapter(kafka(kafkaConnectionString, kafkaOptions));
 
-const brushes = [];
+// const brushes = [];
 
 app.get("/", (req, res) => res.sendFile(INDEX));
 
 io.on("connection", socket => {
-  let brush = { strokes: [] };
-  brushes.push(brush);
-
   socket.on("strokes", strokes => {
-    brush.strokes.push(...strokes);
-    io.emit("paint", strokes);
-  });
-
-  socket.on("refresh", () => {
-    brushes.forEach(b => socket.emit("paint", b.strokes));
+    // brush.strokes.push(...strokes);
+    socket.broadcast.emit("paint", strokes);
   });
 });
 

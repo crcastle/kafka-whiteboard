@@ -1,8 +1,9 @@
 var socket = io();
 var painting = document.getElementById("painting");
 var ctx = painting.getContext("2d");
+painting.width = window.innerWidth;
+painting.height = window.innerHeight;
 var strokes = [];
-var resizeTimer = undefined;
 var randomcolor = require("randomcolor");
 var color = randomcolor({ luminosity: "bright" });
 
@@ -29,10 +30,8 @@ painting.addEventListener("mousemove", e => {
   Object.assign(brush, { x: e.clientX, y: e.clientY });
   paint(strokes);
 });
-window.addEventListener("resize", queueResize);
 socket.addEventListener("paint", paint);
 
-resize();
 setInterval(transmit, 50);
 
 function paint(segments) {
@@ -50,19 +49,8 @@ function paint(segments) {
   ctx.stroke();
 }
 
-function queueResize() {
-  clearTimeout(resizeTimer);
-  resizeTimer = setTimeout(resize, 1000);
-}
-
-function resize() {
-  painting.width = window.innerWidth;
-  painting.height = window.innerHeight;
-  socket.emit("refresh");
-}
-
 function transmit() {
   if (!strokes.length) return;
-  // console.log(strokes.slice(0));
+  console.log(strokes.slice(0));
   socket.emit("strokes", strokes.splice(0));
 }
