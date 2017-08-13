@@ -1,0 +1,40 @@
+{
+  "name": "kafka-whiteboard",
+  "version": "1.0.0",
+  "description": "Shared virtual whiteboard backed by Apache Kafka",
+  "keywords": [
+    "node",
+    "heroku",
+    "express",
+    "socket.io",
+    "websockets",
+    "kafka",
+    "whiteboard",
+    "example"
+  ],
+  "engines": {
+    "node": "8.3.x"
+  },
+  "scripts": {
+    "lint": "prettier --write '**/*.js' '**/*.json'",
+    "start": "babel-node -- src/server/index.js"
+  },
+  "main": "index.js",
+  "author": "Chris Castle",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^1.11.0",
+    "prettier": "^1.5.3"
+  },
+  "dependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
+    "browserify-middleware": "^7.1.0",
+    "express": "^4.15.4",
+    "express-babelify-middleware": "^0.2.1",
+    "no-kafka": "^3.2.0",
+    "randomcolor": "^0.5.3",
+    "socket.io": "^2.0.3",
+    "socket.io-kafka": "crcastle/socket.io-kafka"
+  }
+}

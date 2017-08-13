@@ -1,0 +1,1 @@
+web: node_modules/.bin/nodemon --watch . --watch src -x "node_modules/.bin/babel-node -- src/server/index.js"
