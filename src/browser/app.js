@@ -9,16 +9,36 @@ var color = randomcolor({ luminosity: "bright" });
 
 var brush = { down: false, x: 0, y: 0, color: color };
 
-painting.addEventListener("mousedown", e => {
+var isTouchSupported = "ontouchstart" in window;
+var isPointerSupported = navigator.pointerEnabled;
+var isMSPointerSupported = navigator.msPointerEnabled;
+
+var downEvent = isTouchSupported
+  ? "touchstart"
+  : isPointerSupported
+    ? "pointerdown"
+    : isMSPointerSupported ? "MSPointerDown" : "mousedown";
+var moveEvent = isTouchSupported
+  ? "touchmove"
+  : isPointerSupported
+    ? "pointermove"
+    : isMSPointerSupported ? "MSPointerMove" : "mousemove";
+var upEvent = isTouchSupported
+  ? "touchend"
+  : isPointerSupported
+    ? "pointerup"
+    : isMSPointerSupported ? "MSPointerUp" : "mouseup";
+
+painting.addEventListener(downEvent, e => {
   Object.assign(brush, { down: true, x: e.clientX, y: e.clientY });
 });
-painting.addEventListener("mouseup", e => {
+painting.addEventListener(upEvent, e => {
   Object.assign(brush, { down: false });
 });
 painting.addEventListener("mouseleave", e => {
   Object.assign(brush, { down: false });
 });
-painting.addEventListener("mousemove", e => {
+painting.addEventListener(moveEvent, e => {
   if (!brush.down) return;
   strokes.push({
     color: brush.color,
