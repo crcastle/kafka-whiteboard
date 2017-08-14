@@ -2,11 +2,17 @@
 <html>
   <head>
     <title>Kafka Whiteboard</title>
+    <meta name=viewport content="width=device-width, initial-scale=1">
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
+      .instructions { text-align: center; }
+      .instructions p { font-family: sans-serif; color: #aaa; }
     </style>
   </head>
   <body>
+    <div class="instructions">
+      <p>draw on me</p>
+    </div>
     <canvas id='painting'></canvas>
     <script src='/socket.io/socket.io.js'></script>
     <script src='/js/bundle.js'></script>
