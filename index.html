@@ -5,13 +5,29 @@
     <meta name=viewport content="width=device-width, initial-scale=1">
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
-      .instructions { text-align: center; }
-      .instructions p { font-family: sans-serif; color: #aaa; }
+      .about { text-align: center;color: #777; font-family: sans-serif; font-size: 18px; }
+
+      .about a {
+        color: #aaa;
+        font-size: 14px;
+      }
+      .about a:link,
+      .about a:visited {
+
+      }
+
+      .about a:hover,
+      .about a:active {
+        color: #888;
+      }
+      
+      canvas { position: absolute; left: 0; top: 0; z-index: -1; }
     </style>
   </head>
   <body>
-    <div class="instructions">
+    <div class="about">
       <p>draw on me</p>
+      <a target="_blank" href="https://github.com/crcastle/kafka-whiteboard">code</a>&nbsp;&nbsp;<a target="_blank" href="https://kafka-whiteboard-events.herokuapp.com/">event viewer</a>
     </div>
     <canvas id='painting'></canvas>
     <script src='/socket.io/socket.io.js'></script>
