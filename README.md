@@ -6,7 +6,7 @@ Fun, sample app combining Node.js, Kafka, and Socket.io.  It's a shared, scalabl
 
 ## Deploying to Heroku via CLI
 
-Create a heroku app with Kafka attached. Note that the [`heroku-kafka:basic-0`](https://elements.heroku.com/addons/heroku-kafka) plan is *not* free.
+Create a heroku app with Kafka attached. Note that the [`heroku-kafka:basic-0`](https://elements.heroku.com/addons/heroku-kafka#pricing) plan is **not** free.
 
 ```
 $ heroku create
