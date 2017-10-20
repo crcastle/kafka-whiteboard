@@ -1,14 +1,16 @@
 # kafka-whiteboard
 
-Shared, scalable virtual whiteboard backed by Apache Kafka on Heroku.
+Fun, sample app combining Node.js, Kafka, and Socket.io.  It's a shared, scalable virtual whiteboard that hundreds of people can draw on at the same time.
+
+![Diagram](diagram.JPG)
 
 ## Deploying to Heroku via CLI
 
-Create a heroku app with Kafka attached:
+Create a heroku app with Kafka attached. Note that the [`heroku-kafka:basic-0`](https://elements.heroku.com/addons/heroku-kafka) plan is *not* free.
 
 ```
 $ heroku create
-$ heroku addons:create heroku-kafka:beta3-mt-0
+$ heroku addons:create heroku-kafka:basic-0
 $ heroku kafka:wait
 ```
 
@@ -54,6 +56,10 @@ We'll use our Apache Kafka on Heroku cluster, so the add-on must have been provi
 yarn
 heroku config --json > .env
 heroku local -f Procfile.dev
+```
+Be sure you don't add secret information in `.env` to source control
+```
+if [ ! -f ".gitignore" ]; then echo ".env" > .gitignore; else echo ".env" >> .gitignore; fi
 ```
 
 Get detailed debug information:
